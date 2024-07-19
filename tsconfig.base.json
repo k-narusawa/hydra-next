@@ -1,0 +1,12 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@hydra-next/*": ["libs/*"],
+      "@@hydra-next/idp": ["packages/idp/src/index.ts"],
+      "@@hydra-next/sp": ["packages/sp/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

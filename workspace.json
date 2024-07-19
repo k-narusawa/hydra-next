@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "idp": {
+      "root": "packages/idp"
+    },
+    "sp": {
+      "root": "packages/sp"
+    }
+  }
+}
