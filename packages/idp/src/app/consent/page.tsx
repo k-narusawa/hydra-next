@@ -10,6 +10,11 @@ const ConsentPage = async ({
 
   const response = await hydraAdmin.acceptOAuth2ConsentRequest({
     consentChallenge: consentChallenge,
+    acceptOAuth2ConsentRequest: {
+      grant_scope: ['openid', 'offline'],
+      remember: true,
+      remember_for: 3600,
+    },
   });
 
   if (response.status !== 200) {

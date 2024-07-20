@@ -1,19 +1,21 @@
-import { LoginButton, LogoutButton } from '@/app/components/buttons';
+import { LogoutButton } from '@/app/components/buttons';
+import { options } from '@/app/libs/auth/options';
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 
 export default async function Home() {
+  const session = await getServerSession(options);
+
+  if (!session || !session.user) {
+    await redirect('/signin');
+    return;
+  }
+
   return (
-    <main
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '70vh',
-      }}
-    >
-      <div>
-        <LoginButton />
-        <LogoutButton />
-      </div>
-    </main>
+    <div>
+      <h1>Home</h1>
+      <div>{session.user.id}</div>
+      <LogoutButton />
+    </div>
   );
 }
