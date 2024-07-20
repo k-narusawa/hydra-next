@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "jsx": "preserve",
     "allowJs": true,
     "esModuleInterop": true,
@@ -16,15 +20,8 @@
         "name": "next"
       }
     ],
-    "types": [
-      "jest",
-      "node"
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "types": ["jest", "node"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "module": "esnext",
     "moduleResolution": "node"
@@ -39,10 +36,5 @@
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "jest.config.ts",
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ]
+  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }
