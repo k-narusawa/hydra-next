@@ -13,15 +13,19 @@ const LoginPage = async ({
   };
 
   const response = await hydraAdmin.getOAuth2LoginRequest(loginRequest);
+  console.log(response.data);
 
   if (response.data.skip) {
-    console.log('skip');
-    // TODO: accept login request
+    return (
+      <div>
+        <LoginForm loginChallenge={loginChallenge} canSkip={true} />
+      </div>
+    );
   }
 
   return (
     <div>
-      <LoginForm loginChallenge={loginChallenge} />
+      <LoginForm loginChallenge={loginChallenge} canSkip={false} />
     </div>
   );
 };

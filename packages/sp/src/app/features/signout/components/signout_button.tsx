@@ -7,11 +7,14 @@ const SignOutButton: React.FC = () => {
   const router = useRouter();
 
   const signOut = async () => {
-    // await signOut();
-    await router.push('/signout');
+    await router.push('/signout/idp');
   };
 
-  return <Button onClick={signOut} disabled={false}>Logout</Button>;
+  return (
+    <Button onClick={signOut} disabled={false}>
+      Logout
+    </Button>
+  );
 };
 
 export default SignOutButton;

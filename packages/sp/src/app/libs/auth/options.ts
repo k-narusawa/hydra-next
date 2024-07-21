@@ -10,12 +10,13 @@ export const options: NextAuthOptions = {
         token.sub = user.id;
         token.accessToken = account?.access_token;
         token.refreshToken = account?.refresh_token;
+        token.idToken = account?.id_token;
       }
 
       return token;
     },
     session: ({ session, token }) => {
-      if (token.accessToken && token.refreshToken) {
+      if (token.accessToken && token.refreshToken && token.idToken) {
         return {
           ...session,
           user: {
@@ -23,6 +24,7 @@ export const options: NextAuthOptions = {
             id: token.sub,
             accessToken: token.accessToken,
             refreshToken: token.refreshToken,
+            idToken: token.idToken,
           },
         };
       }

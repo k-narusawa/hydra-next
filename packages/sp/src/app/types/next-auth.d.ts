@@ -6,6 +6,7 @@ declare module 'next-auth' {
       id: string;
       accessToken: string;
       refreshToken: string;
+      idToken: string;
     };
   }
 }
@@ -15,5 +16,6 @@ declare module 'next-auth/jwt' {
     sub: string;
     accessToken?: string;
     refreshToken?: string;
+    idToken?: string;
   }
 }

@@ -8,9 +8,10 @@ import { useEffect } from 'react';
 
 type Props = {
   loginChallenge: string;
+  canSkip: boolean;
 };
 
-const LoginForm: React.FC<Props> = ({ loginChallenge }) => {
+const LoginForm: React.FC<Props> = ({ loginChallenge, canSkip }) => {
   const {
     handleSubmit,
     handleUsernameChange,
@@ -27,8 +28,13 @@ const LoginForm: React.FC<Props> = ({ loginChallenge }) => {
       <Card>
         <div className="px-8 py-8">
           <div className="flex justify-center text-2xl font-bold mb-12">
-            ログイン
+            Login
           </div>
+          {canSkip && (
+            <div className="flex justify-center text-2xl font-bold mb-12">
+              You can skip this login!!
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <Input
               type="text"

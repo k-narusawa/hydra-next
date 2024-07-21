@@ -1,7 +1,8 @@
-import { redirect } from 'next/navigation';
+'use client';
+import { signOut } from 'next-auth/react';
 
-const SignOutPage = async () => {
-  await redirect(`${process.env.HYDRA_PUBLIC_URL}/oauth2/sessions/logout`);
+const SignOutPage = () => {
+  signOut({ callbackUrl: '/' });
 };
 
 export default SignOutPage;
